@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HackerQuotes</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div id = "wrapper">
+    <header id="header">
+      <h1 class="title"><%= link_to "Hacker Quotes", root_path %></h1>
+    </header>  
+    
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+
+    <footer class="page-footer">
+      Copyright &copy; <a href="http://wowmakers.com">Wowmakers</a> 2012
+    </footer>
+  </div>
+</body>
+</html>
