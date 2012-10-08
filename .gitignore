@@ -16,4 +16,4 @@ rerun.txt
 pickle-email-*.html
 Capfile
 /config/deploy.rb
-/views/quotes/_analytics.html.erb
+/app/views/quotes/_analytics.html.erb
