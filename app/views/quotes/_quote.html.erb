@@ -1,9 +1,18 @@
 <div class="quote">
-  <blockquote><%= quote.body %></blockquote>
+  <div class="body"><%= quote.body %></div>
   <div class="meta">
     <%= quote.author_name%><%= quote.author_description? ? ", " : " " %>
-    <%= quote.author_description %>
+    <%= quote.author_description%>
+    
+    <% if signed_in? %>
+      <%= link_to "Edit", edit_quote_path(quote) %>
+      <%= link_to("Delete", quote, method: :delete, data: { confirm: "Are you sure?" } ) %>
+    <% end %>
   </div>
+  <div class="tweet-this">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://hackerquotes.com/quotes/<%=quote.id%>" data-text="<%= truncate(quote.body, :length => 119, :omission => '... (contd)') %>" >Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
   <div class="posted-date">
     <%= link_to(quote.created_at.strftime("%b, %d, %Y"), quote_path(quote)) %>
   </div>
